@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Details from './Details';
+import Search from './Search';
 
 export default class HelloWorld extends React.Component {
   static propTypes = {
@@ -24,21 +26,9 @@ export default class HelloWorld extends React.Component {
   render() {
     return (
       <div>
-        <h3>
-          Hello, {this.state.name}!
-        </h3>
-        <hr />
-        <form >
-          <label htmlFor="name">
-            Say hello to:
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={this.state.name}
-            onChange={(e) => this.updateName(e.target.value)}
-          />
-        </form>
+        <Search></Search>
+        <hr/>
+        <Details name={"Hello"} category={"TV"} rank={"2"} dimensions={"2x2"}></Details>
       </div>
     );
   }
