@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export default class Search extends React.Component {
+  static propTypes = {
+    setParentState: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
 
@@ -9,6 +13,16 @@ export default class Search extends React.Component {
       asin: ""
      };
   }
+
+  search = (event) => {
+    event.preventDefault();
+    fetch("/api/v1/products/" + this.state.asin)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.props.setParentState(data);
+      });
+  };
 
   render() {
     return (
@@ -24,7 +38,7 @@ export default class Search extends React.Component {
           />
           <button
             type="button"
-            onClick={() => console.log(this.state.asin)}
+            onClick={this.search}
           > Search </button>
         </form>
       </div>

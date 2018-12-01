@@ -11,22 +11,15 @@ export default class Details extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = { 
-      name: this.props.name,
-      category: this.props.category,
-      rank: this.props.rank,
-      dimensions: this.props.dimensions,
-     };
   }
 
   render() {
     return (
       <div>
-        <p>Name: {this.state.name}</p>      
-        <p>Category: {this.state.category}</p>      
-        <p>Rank: {this.state.rank}</p>      
-        <p>Product Dimensions: {this.state.dimensions}</p>      
+        <p>Name: {this.props.name}</p>      
+        <p>Category: {this.props.category}</p>      
+        <p>Rank: {this.props.rank}</p>      
+        <p>Product Dimensions: {this.props.dimensions}</p>      
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Details from './Details';
 import Search from './Search';
@@ -9,14 +8,36 @@ export default class Home extends React.Component {
    */
   constructor(props) {
     super(props);
+
+    this.state = { 
+      asin: "",
+      name: "",
+      category: "",
+      rank: "",
+      dimensions: "",
+    };
+  }
+
+  getState = (data) => {
+    this.setState({
+      name: data.name,
+      category: data.category,
+      rank: data.rank,
+      dimensions: data.dimensions,
+    })
   }
 
   render() {
     return (
       <div>
-        <Search></Search>
+        <Search setParentState={this.getState}></Search>
         <hr/>
-        <Details name={"Hello"} category={"TV"} rank={"2"} dimensions={"2x2"}></Details>
+        <Details 
+          name={this.state.name}
+          category={this.state.category} 
+          rank={this.state.rank} 
+          dimensions={this.state.dimensions}>
+        </Details>
       </div>
     );
   }
