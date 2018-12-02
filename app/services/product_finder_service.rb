@@ -3,14 +3,14 @@ class ProductFinderService
     @asin = asin
   end
 
-  def self.getProduct(asin)
-    return Product.find_by(asin: asin) || new(asin).scrapeProduct
+  def getProduct
+    return Product.find_by(asin: @asin) || ProductFinderService.scrapeProduct(@asin)
   end
 
-  def scrapeProduct
+  def ProductFinderService.scrapeProduct(asin)
     doc = Nokogiri::HTML(
         open(
-          "https://www.amazon.com/dp/" + @asin,
+          "https://www.amazon.com/dp/" + asin,
           "User-Agent" => "Awesome App/1.0"
         )
       )
@@ -23,7 +23,7 @@ class ProductFinderService
     dimensions = doc.css('#prodDetails').css('.size-weight > .value')[1].text
 
     product = Product.new
-    product.asin = @asin
+    product.asin = asin
     product.name = name
     product.category = category
     product.rank = rank

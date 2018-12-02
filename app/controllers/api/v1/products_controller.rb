@@ -2,7 +2,7 @@ class Api::V1::ProductsController < ApplicationController
   def show
     asin = params[:id]
 
-    product = ProductFinderService.getProduct(asin)
+    product = ProductFinderService.new(asin).getProduct
 
     result = {
       "name" => product.name,
