@@ -25,17 +25,25 @@ export default class Search extends React.Component {
   };
 
   render() {
+
+    const formStlye = {
+      width: '300px',
+      margin: '0 auto',
+      outline: 'none'
+    };
+
     return (
       <div>
-        <form >
+        <form style={formStlye}>
           <label htmlFor="name">
-            Enter ASIN: 
+            Enter ASIN: &nbsp; 
           </label>
           <input
             id="name"
             type="text"
             onChange={(e) => this.setState({asin: e.target.value})}
           />
+          &nbsp;
           <button
             type="button"
             onClick={this.search}

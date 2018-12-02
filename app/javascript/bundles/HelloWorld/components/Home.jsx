@@ -30,6 +30,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
+        <h1>Amazon Product Details</h1>
         <Search setParentState={this.getState}></Search>
         <hr/>
         <Details 
