@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
+gem 'watir'
 gem 'rails_12factor', group: :production
 gem 'react_on_rails', '11.1.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
