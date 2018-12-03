@@ -19,6 +19,8 @@ foreman start -f Procfile.dev-server
 
 open http://localhost:3000/
 
+<sub>P.S. I had this deployed to heroku initially. But after I started using Watir (to read the HTML) which requires chromedriver, I could not get heroku to properly install chromedriver on the server. I apologize for the inconvenience in having to run this locally.</sub>
+
 ## Run Test
 ```
 rake
