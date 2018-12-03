@@ -15,31 +15,40 @@ export default class Details extends React.Component {
 
   render() {
     const leftColumn = {
-      textAlign: 'center'
+      textAlign: 'right'
+    };
+
+    const rightColumn = {
+      paddingLeft: '10px'
     };
 
     const tableStlye = {
       margin: '0 auto'
     };
 
+    // Don't show anything until there is a product to show
+    if (this.props.name == "") {
+      return (<div></div>);
+    }
+
     return (
       <table style={tableStlye}>
         <tbody>
           <tr>
             <td style={leftColumn}><b>Name:</b></td>
-            <td>{this.props.name}</td>
+            <td style={rightColumn}>{this.props.name}</td>
           </tr>
           <tr>
             <td style={leftColumn}><b>Category:</b></td>
-            <td>{this.props.category}</td>
+            <td style={rightColumn}>{this.props.category}</td>
           </tr>
           <tr>
             <td style={leftColumn}><b>Rank:</b></td>
-            <td>{this.props.rank}</td>
+            <td style={rightColumn}>#{this.props.rank}</td>
           </tr>
           <tr>
-            <td style={leftColumn}><b>Product Dimensions:</b></td>
-            <td>{this.props.dimensions}</td>
+            <td style={leftColumn}><b>Dimensions:</b></td>
+            <td style={rightColumn}>{this.props.dimensions}</td>
           </tr>
         </tbody>
       </table>

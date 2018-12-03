@@ -25,11 +25,9 @@ export default class Search extends React.Component {
   };
 
   render() {
-
     const formStlye = {
       width: '300px',
-      margin: '0 auto',
-      outline: 'none'
+      margin: '0 auto'
     };
 
     return (
@@ -41,6 +39,7 @@ export default class Search extends React.Component {
           <input
             id="name"
             type="text"
+            style={{outline:"none"}}
             onChange={(e) => this.setState({asin: e.target.value})}
           />
           &nbsp;
